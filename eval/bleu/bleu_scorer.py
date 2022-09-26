@@ -12,8 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""Bleu scorer."""
-
 import collections
 import sacrebleu
 from rouge_score import scoring
