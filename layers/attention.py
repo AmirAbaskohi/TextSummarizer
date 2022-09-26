@@ -24,6 +24,13 @@ Notations:
 import tensorflow as tf
 
 
+def split_heads(tensor_BxIxD, num_heads):
+  B, I, D = tensor_BxIxD.shape
+  tensor_BxIxHxD = tf.reshape(tensor_BxIxD, [B, I, num_heads, D // num_heads])
+  tensor_BxHxIxD = tf.transpose(tensor_BxIxHxD, [0, 2, 1, 3])
+  return tensor_BxHxIxD
+
+
 class Attention(object):
   """Multihead scaled dot product attention."""
 
